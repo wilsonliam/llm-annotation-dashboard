@@ -1,0 +1,249 @@
+{
+  "alpha": 0.1,
+  "cal_frac": 0.7,
+  "seed": 42,
+  "per_model": {
+    "anthropic": {
+      "n_cal": 300,
+      "n_test": 47,
+      "alpha": 0.1,
+      "target_coverage": 0.9,
+      "q_hat": 0.66,
+      "empirical_coverage": 0.8936,
+      "avg_set_size": 1.1064,
+      "singleton_frac": 0.8936,
+      "empty_frac": 0.0,
+      "cal_score_mean": 0.2504,
+      "cal_score_std": 0.2127
+    },
+    "gemini": {
+      "n_cal": 300,
+      "n_test": 47,
+      "alpha": 0.1,
+      "target_coverage": 0.9,
+      "q_hat": 0.64,
+      "empirical_coverage": 0.9787,
+      "avg_set_size": 1.1489,
+      "singleton_frac": 0.8511,
+      "empty_frac": 0.0,
+      "cal_score_mean": 0.2795,
+      "cal_score_std": 0.213
+    },
+    "openai": {
+      "n_cal": 300,
+      "n_test": 47,
+      "alpha": 0.1,
+      "target_coverage": 0.9,
+      "q_hat": 0.66,
+      "empirical_coverage": 0.8723,
+      "avg_set_size": 1.0,
+      "singleton_frac": 1.0,
+      "empty_frac": 0.0,
+      "cal_score_mean": 0.216,
+      "cal_score_std": 0.2177
+    }
+  },
+  "alpha_sweep": {
+    "anthropic": [
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.01,
+        "target_coverage": 0.99,
+        "q_hat": 0.9003,
+        "empirical_coverage": 1.0,
+        "avg_set_size": 1.766,
+        "singleton_frac": 0.234,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.2504,
+        "cal_score_std": 0.2127
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.05,
+        "target_coverage": 0.95,
+        "q_hat": 0.8,
+        "empirical_coverage": 0.9574,
+        "avg_set_size": 1.4468,
+        "singleton_frac": 0.5532,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.2504,
+        "cal_score_std": 0.2127
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.1,
+        "target_coverage": 0.9,
+        "q_hat": 0.66,
+        "empirical_coverage": 0.8936,
+        "avg_set_size": 1.1064,
+        "singleton_frac": 0.8936,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.2504,
+        "cal_score_std": 0.2127
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.15,
+        "target_coverage": 0.85,
+        "q_hat": 0.3815,
+        "empirical_coverage": 0.8085,
+        "avg_set_size": 0.9149,
+        "singleton_frac": 0.9149,
+        "empty_frac": 0.0851,
+        "cal_score_mean": 0.2504,
+        "cal_score_std": 0.2127
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.2,
+        "target_coverage": 0.8,
+        "q_hat": 0.322,
+        "empirical_coverage": 0.7872,
+        "avg_set_size": 0.8936,
+        "singleton_frac": 0.8936,
+        "empty_frac": 0.1064,
+        "cal_score_mean": 0.2504,
+        "cal_score_std": 0.2127
+      }
+    ],
+    "gemini": [
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.01,
+        "target_coverage": 0.99,
+        "q_hat": 0.9105,
+        "empirical_coverage": 1.0,
+        "avg_set_size": 1.8723,
+        "singleton_frac": 0.1277,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.2795,
+        "cal_score_std": 0.213
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.05,
+        "target_coverage": 0.95,
+        "q_hat": 0.7209,
+        "empirical_coverage": 0.9787,
+        "avg_set_size": 1.2979,
+        "singleton_frac": 0.7021,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.2795,
+        "cal_score_std": 0.213
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.1,
+        "target_coverage": 0.9,
+        "q_hat": 0.64,
+        "empirical_coverage": 0.9787,
+        "avg_set_size": 1.1489,
+        "singleton_frac": 0.8511,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.2795,
+        "cal_score_std": 0.213
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.15,
+        "target_coverage": 0.85,
+        "q_hat": 0.5315,
+        "empirical_coverage": 0.9574,
+        "avg_set_size": 1.0,
+        "singleton_frac": 1.0,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.2795,
+        "cal_score_std": 0.213
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.2,
+        "target_coverage": 0.8,
+        "q_hat": 0.4,
+        "empirical_coverage": 0.8936,
+        "avg_set_size": 0.9362,
+        "singleton_frac": 0.9362,
+        "empty_frac": 0.0638,
+        "cal_score_mean": 0.2795,
+        "cal_score_std": 0.213
+      }
+    ],
+    "openai": [
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.01,
+        "target_coverage": 0.99,
+        "q_hat": 0.8902,
+        "empirical_coverage": 0.9787,
+        "avg_set_size": 1.7021,
+        "singleton_frac": 0.2979,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.216,
+        "cal_score_std": 0.2177
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.05,
+        "target_coverage": 0.95,
+        "q_hat": 0.81,
+        "empirical_coverage": 0.9149,
+        "avg_set_size": 1.3191,
+        "singleton_frac": 0.6809,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.216,
+        "cal_score_std": 0.2177
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.1,
+        "target_coverage": 0.9,
+        "q_hat": 0.66,
+        "empirical_coverage": 0.8723,
+        "avg_set_size": 1.0,
+        "singleton_frac": 1.0,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.216,
+        "cal_score_std": 0.2177
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.15,
+        "target_coverage": 0.85,
+        "q_hat": 0.31,
+        "empirical_coverage": 0.8723,
+        "avg_set_size": 1.0,
+        "singleton_frac": 1.0,
+        "empty_frac": 0.0,
+        "cal_score_mean": 0.216,
+        "cal_score_std": 0.2177
+      },
+      {
+        "n_cal": 300,
+        "n_test": 47,
+        "alpha": 0.2,
+        "target_coverage": 0.8,
+        "q_hat": 0.27,
+        "empirical_coverage": 0.8085,
+        "avg_set_size": 0.9149,
+        "singleton_frac": 0.9149,
+        "empty_frac": 0.0851,
+        "cal_score_mean": 0.216,
+        "cal_score_std": 0.2177
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "started": "2026-03-06T20:46:50.115185+00:00",
+  "finished": "2026-03-06T20:46:50.115187+00:00",
+  "visit_count": 20,
+  "mock_data": true,
+  "seed": 99,
+  "models": {
+    "anthropic": {
+      "provider": "anthropic",
+      "model_id": "claude-sonnet-4-20250514",
+      "total_calls": 20,
+      "total_errors": 0,
+      "total_input_tokens": 92460,
+      "total_output_tokens": 31495
+    },
+    "openai": {
+      "provider": "openai",
+      "model_id": "gpt-4o-2024-11-20",
+      "total_calls": 20,
+      "total_errors": 0,
+      "total_input_tokens": 92460,
+      "total_output_tokens": 33630
+    },
+    "gemini": {
+      "provider": "gemini",
+      "model_id": "gemini-2.0-flash",
+      "total_calls": 20,
+      "total_errors": 0,
+      "total_input_tokens": 92460,
+      "total_output_tokens": 29560
+    }
+  }
+}

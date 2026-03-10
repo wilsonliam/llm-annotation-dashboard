@@ -1,0 +1,3 @@
+I'm doing a project on predicting early ICU discharge for MIMIC-IV data, as a surrogate labeling problem. There will be some statistical approaches added, but for now, I'm wanting to compare LLM annotators: Anthropic, OpenAI,Google (Gemini) and OpenEvidence models. Create code that I can run (API keys will be environment variables, so give me a environment file to put those in that i can source or whatever). 
+
+I've included a subset of MIMIC-IV data (display_visits.json) for you to recognize the structure. In reality this will be a curated subset but the structure will be the same. I might recommend using OpenRouter for this project but you can deliberate.  
