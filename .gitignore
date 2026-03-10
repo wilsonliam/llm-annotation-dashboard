@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.env
+
+# Results (large generated files)
+pipeline/results/*.jsonl
+pipeline/results/*.json
+!pipeline/results/.gitkeep
+
+# Node
+node_modules/
+dist/
+
+# Misc
+*.log
+.claude/

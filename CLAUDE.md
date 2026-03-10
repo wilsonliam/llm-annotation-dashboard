@@ -9,8 +9,8 @@ Python pipeline for LLM-based annotation of ICU discharge readiness from MIMIC-I
 ## Setup
 
 ```bash
-source warren_assg_2/source_env.sh   # Load API keys from .env into shell
-pip install -r warren_assg_2/requirements.txt
+source pipeline/source_env.sh   # Load API keys from .env into shell
+pip install -r pipeline/requirements.txt
 ```
 
 Required `.env` variables: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GOOGLE_API_KEY`
@@ -19,22 +19,25 @@ Required `.env` variables: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GOOGLE_API_KE
 
 ```bash
 # Annotate all 140 visits with all 3 models
-python warren_assg_2/run.py
+python pipeline/run.py
 
 # Subset / specific models
-python warren_assg_2/run.py --models anthropic openai --max-visits 5
+python pipeline/run.py --models anthropic openai --max-visits 5
 
 # Generate mock data (no API cost)
-python warren_assg_2/generate_mock_data.py --max-visits 20 --seed 42
+python pipeline/generate_mock_data.py --max-visits 20 --seed 42
 
 # Inter-annotator agreement analysis
-python -m warren_assg_2.analysis.compare --results-dir warren_assg_2/results/
+python -m pipeline.analysis.compare --results-dir pipeline/results/
 
 # Interactive Pareto dashboard (Dash app on port 8050)
-python -m warren_assg_2.analysis.pareto_dashboard --results-dir warren_assg_2/results/
+python -m pipeline.analysis.pareto_dashboard --results-dir pipeline/results/
 
 # Conformal prediction analysis
-python -m warren_assg_2.analysis.conformal --results-dir warren_assg_2/results/ --alpha 0.10
+python -m pipeline.analysis.conformal --results-dir pipeline/results/ --alpha 0.10
+
+# Semantic entropy analysis
+python -m pipeline.analysis.semantic_entropy --results-dir pipeline/results/
 ```
 
 There is no formal test framework — use `generate_mock_data.py` to produce synthetic results for testing analysis/visualization without hitting real APIs.
@@ -62,9 +65,9 @@ There is no formal test framework — use `generate_mock_data.py` to produce syn
 - GPT-4o: `gpt-4o-2024-11-20`
 - Gemini: `gemini-2.0-flash`
 
-## w2-dashboard (React Frontend)
+## dashboard (React Frontend)
 
-Located at `/Users/liamwilson/w2/w2-dashboard/`. A static React data visualization dashboard for comparing the three LLM annotators on ICU discharge readiness prediction results.
+Located at `dashboard/`. A static React data visualization dashboard for comparing the three LLM annotators on ICU discharge readiness prediction results.
 
 ### Stack
 
@@ -78,7 +81,7 @@ Located at `/Users/liamwilson/w2/w2-dashboard/`. A static React data visualizati
 ### Running
 
 ```bash
-cd w2-dashboard
+cd dashboard
 npm install
 npm run dev       # development server at http://localhost:5173
 npm run build     # production build to dist/
@@ -90,11 +93,12 @@ npm run build     # production build to dist/
 - `/details` — **Model Details**: sortable metrics table, confidence histogram, bin agreement heatmap
 - `/visits` — **Visit Explorer**: per-visit discharge readiness timeline and confidence charts with model toggle
 - `/conformal` — **Conformal Prediction**: per-model conformal metrics and alpha sweep coverage chart
+- `/semantic` — **Semantic Entropy**: reasoning divergence heatmaps, agreement vs. entropy scatter, confidence variance panel
 
 ### Architecture
 
-- `src/lib/loader.ts` — Fetches and parses JSONL files, computes per-provider metrics (agreement, Brier score, mean confidence, kappa), pairwise Cohen's κ matrix, and Pareto-optimal flags
+- `src/lib/loader.ts` — Fetches and parses JSONL files, computes per-provider metrics (agreement, Brier score, mean confidence, kappa), pairwise Cohen's κ matrix, Pareto-optimal flags, and per-bin confidence variance
 - `src/lib/pareto.ts` — Pure function: given (id, cost, quality) points, returns the non-dominated Pareto front as a Set of ids
-- `src/hooks/DashboardContext.tsx` — React context that loads data once on mount and provides it to all pages; consumed via `useDashboardData()`
+- `src/hooks/DashboardContext.tsx` — React context that loads data once on mount and provides it to all pages; consumed via `useDashboard()`
 - Provider color palette: anthropic `#D97706`, openai `#059669`, gemini `#2563EB`
-- Data files in `public/data/`: `anthropic_predictions.jsonl`, `openai_predictions.jsonl`, `gemini_predictions.jsonl`, `run_metadata.json`, `conformal_results.json`
+- Data files in `public/data/`: `anthropic_predictions.jsonl`, `openai_predictions.jsonl`, `gemini_predictions.jsonl`, `run_metadata.json`, `conformal_results.json`, `semantic_entropy.json`
